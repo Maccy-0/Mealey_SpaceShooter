@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: d14e75bc8c82e9d4682be450432775f4
+  productGUID: 6f8eebdb9ec74e8428114ae206846efe
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: Week 3 Assignment 2024 (2)
+  productName: Mac Week 4 Journal
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -630,14 +630,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Week 3 Assignment 2024 (2)
+  metroPackageName: Mac Week 4 Journal
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: Week 3 Assignment 2024 (2)
+  metroApplicationDescription: Mac Week 4 Journal
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -706,10 +706,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 95d09f89-ead4-47f6-a7ee-380cc5cc166c
+  cloudProjectId: 4db94a3c-c4b8-40df-afcd-c057284ce774
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Week 3 Assignment 2024 (2)
+  projectName: Mac Week 4 Journal
   organizationId: mj1mine
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
