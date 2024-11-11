@@ -27,7 +27,6 @@ public class Moon : MonoBehaviour
     void OrbitalMotion(float radius, float speed, Transform target)
     {
         placeInOrbit = (placeInOrbit + speed*Time.deltaTime) % 100;
-        Debug.Log(placeInOrbit);
 
         float radians = 2 * Mathf.PI / 100 * placeInOrbit;
 

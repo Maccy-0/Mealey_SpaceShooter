@@ -17,6 +17,19 @@ public class Player : MonoBehaviour
     public int numberOfPowerups;
     public GameObject powerUpPrefab;
 
+    //Player Movement
+    Vector3 Velocity;
+    public float maxSpeed;
+    public float accelerationTime;
+    float acceleration;
+    public float decelerationTime;
+    float deAcceleration;
+
+    //Gravity
+    public List<Transform> planetTransforms;
+    Vector3 planetGravity;
+    int strongestPlanet;
+
 
     void Update()
     {
@@ -27,6 +40,90 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown("p"))
         {
             SpawnPowerups(radius, numberOfPowerups);
+        }
+        playerMovement();
+        playerGravity();
+        transform.position += Velocity * Time.deltaTime;
+    }
+
+    void playerGravity()
+    {
+        strongestPlanet = 0;
+        for (int i = 0; i < planetTransforms.Count; i++)
+        {
+            if (Vector2.Distance(transform.position, planetTransforms[i].transform.position) < Vector2.Distance(transform.position, planetTransforms[strongestPlanet].transform.position))
+            {
+                strongestPlanet = i;
+            }
+        }
+        Vector3 planetGravity = Vector3.Lerp(transform.position, planetTransforms[strongestPlanet].transform.position, 2*Time.deltaTime/ Vector2.Distance(transform.position, planetTransforms[strongestPlanet].transform.position));
+        transform.position = planetGravity;
+    }
+
+    void playerMovement()
+    {
+        acceleration = (maxSpeed / accelerationTime * Time.deltaTime);
+        deAcceleration = -(maxSpeed / decelerationTime * Time.deltaTime);
+
+        if (Input.GetKey("up"))
+        {
+            Velocity += new Vector3(0, acceleration);
+            if (Velocity.y > maxSpeed)
+            {
+                Velocity.y = maxSpeed;
+            }
+        }
+        else
+        {
+            if (Velocity.y > 0)
+            {
+                Velocity += new Vector3(0, deAcceleration);
+            }
+        }
+        if (Input.GetKey("down"))
+        {
+            Velocity += new Vector3(0, -acceleration);
+            if (Velocity.y < -maxSpeed)
+            {
+                Velocity.y = -maxSpeed;
+            }
+        }
+        else
+        {
+            if (Velocity.y < 0)
+            {
+                Velocity += new Vector3(0, -deAcceleration);
+            }
+        }
+        if (Input.GetKey("left"))
+        {
+            Velocity += new Vector3(-acceleration, 0);
+            if (Velocity.x < -maxSpeed)
+            {
+                Velocity.x = -maxSpeed;
+            }
+        }
+        else
+        {
+            if (Velocity.x < 0)
+            {
+                Velocity += new Vector3(-deAcceleration, 0);
+            }
+        }
+        if (Input.GetKey("right"))
+        {
+            Velocity += new Vector3(acceleration, 0);
+            if (Velocity.x > maxSpeed)
+            {
+                Velocity.x = maxSpeed;
+            }
+        }
+        else
+        {
+            if (Velocity.x > 0)
+            {
+                Velocity += new Vector3(deAcceleration, 0);
+            }
         }
     }
 
